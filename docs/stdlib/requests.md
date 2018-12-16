@@ -1,7 +1,6 @@
 
 # Package: requests
 
-## Functions
 
 ### GetURLAsBytes
 
@@ -62,3 +61,4 @@ func PostURL(url string, data string, headers map[string]interface{}, ignoressle
 ``````
 
 ``````
+

@@ -1,7 +1,6 @@
 
 # Package: exec
 
-## Functions
 
 ### ExecuteCommand
 
@@ -26,3 +25,4 @@ func ExecuteCommandAsync(c string, args []interface{}) (*executer.Cmd, error)
 ``````
 
 ``````
+

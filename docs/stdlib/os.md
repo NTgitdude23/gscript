@@ -1,7 +1,6 @@
 
 # Package: os
 
-## Functions
 
 ### TerminateSelf
 
@@ -26,3 +25,4 @@ func TerminateVM()
 ``````
 
 ``````
+

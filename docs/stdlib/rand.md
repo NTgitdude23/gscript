@@ -1,7 +1,6 @@
 
 # Package: rand
 
-## Functions
 
 ### GetAlphaNumericSpecialString
 
@@ -62,3 +61,4 @@ func RandomInt(min, max int) int
 ``````
 
 ``````
+

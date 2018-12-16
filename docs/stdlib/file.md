@@ -1,7 +1,6 @@
 
 # Package: file
 
-## Functions
 
 ### AppendFileBytes
 
@@ -134,3 +133,4 @@ func WriteFileFromString(destPath string, fileData string) error
 ``````
 
 ``````
+

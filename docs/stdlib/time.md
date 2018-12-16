@@ -1,7 +1,6 @@
 
 # Package: time
 
-## Functions
 
 ### GetUnix
 
@@ -14,3 +13,4 @@ func GetUnix() int
 ``````
 
 ``````
+

@@ -1,7 +1,6 @@
 
 # Package: net
 
-## Functions
 
 ### CheckForInUseTCP
 
@@ -26,3 +25,4 @@ func CheckForInUseUDP(port int) (bool, error)
 ``````
 
 ``````
+

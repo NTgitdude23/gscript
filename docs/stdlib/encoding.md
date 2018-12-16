@@ -1,7 +1,6 @@
 
 # Package: encoding
 
-## Functions
 
 ### DecodeBase64
 
@@ -50,3 +49,4 @@ func EncodeStringAsBytes(data string) []byte
 ``````
 
 ``````
+

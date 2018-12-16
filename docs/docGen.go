@@ -17,7 +17,6 @@ const (
 	gdocTemplate = `
 # Package: {{.PackageName}}
 
-## Functions
 {{range .FunctionDefs}}
 ### {{.Name}}
 {{.Doc}}
@@ -28,7 +27,8 @@ const (
 ` + "``````" + `
 {{.Example}}
 ` + "``````" + `
-{{end}}`
+{{end}}
+`
 )
 
 func checkFatalErr(err error) {

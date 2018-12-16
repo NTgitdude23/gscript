@@ -1,7 +1,6 @@
 
 # Package: crypto
 
-## Functions
 
 ### GenerateRSASSHKeyPair
 
@@ -86,3 +85,4 @@ func GetSHA256FromString(data string) string
 ``````
 
 ``````
+
