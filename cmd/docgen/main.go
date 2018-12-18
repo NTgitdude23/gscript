@@ -1,3 +1,5 @@
+//go:generate fileb0x assets.toml
+
 package main
 
 import (
@@ -13,23 +15,20 @@ import (
 )
 
 const (
-	stdLibRoot   = "https://godoc.org/github.com/gen0cide/gscript/stdlib"
-	gdocTemplate = `
-# Package: {{.PackageName}}
-
-{{range .FunctionDefs}}
-### {{.Name}}
-{{.Doc}}
-` + "``````" + `
-` + `{{.Sig}}
-` + "``````" + `
-#### Example
-` + "``````" + `
-{{.Example}}
-` + "``````" + `
-{{end}}
-`
+	stdLibRoot = "https://godoc.org/github.com/gen0cide/gscript/stdlib"
 )
+
+type functionDef struct {
+	Name    string
+	Sig     string
+	Doc     string
+	Example string
+}
+
+type gDocPage struct {
+	PackageName  string
+	FunctionDefs []functionDef
+}
 
 func checkFatalErr(err error) {
 	if err != nil {
@@ -46,18 +45,6 @@ func getParsedHTMLDoc(url string) (*html.Node, error) {
 }
 
 func makeGDocsFromURL(url string) {
-
-	type functionDef struct {
-		Name    string
-		Sig     string
-		Doc     string
-		Example string
-	}
-
-	type gDocPage struct {
-		PackageName  string
-		FunctionDefs []functionDef
-	}
 
 	// init
 	innerHTMLBuffer := bytes.NewBuffer([]byte{})
@@ -160,7 +147,9 @@ func makeGDocsFromURL(url string) {
 	parseGoDoc(doc)
 
 	// make GDoc page
-	gDocTemplateInstance := template.Must(template.New("doc").Parse(gdocTemplate))
+	gdocTemplate, err := ReadFile("docs.gotmpl")
+	checkFatalErr(err)
+	gDocTemplateInstance := template.Must(template.New("doc").Parse(string(gdocTemplate)))
 	gDoc := bytes.NewBuffer([]byte{})
 	gDocTemplateInstance.Execute(gDoc, gDocPageObj)
 	ioutil.WriteFile("stdlib/"+gDocPageObj.PackageName+".md", gDoc.Bytes(), 0644)

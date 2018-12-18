@@ -1,0 +1,17 @@
+# Package: {{.PackageName}}
+
+{{- range .FunctionDefs }}
+### {{ .Name }}
+{{ .Doc }}
+
+```go
+{{ .Sig }}
+```
+
+#### Example
+
+```javascript
+{{ .Example }}
+```
+
+{{ end -}}
